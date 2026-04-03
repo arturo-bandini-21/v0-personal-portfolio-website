@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Github, Linkedin } from "lucide-react"
+import { ArrowRight, Github, Linkedin, Mail, Phone, MessageCircle } from "lucide-react"
 import { Header } from "@/components/header"
 import { useLanguage } from "@/lib/language-context"
 
