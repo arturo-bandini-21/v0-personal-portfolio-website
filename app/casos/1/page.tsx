@@ -3,6 +3,16 @@
 import { Header } from "@/components/header"
 import { useLanguage } from "@/lib/language-context"
 
+const TECH_STACK = [
+  "PostgreSQL",
+  "SQL",
+  "Google Sheets",
+  "Looker Studio",
+  "Metabase",
+  "Slack API",
+  "PostHog",
+]
+
 export default function Case1Page() {
   const { t } = useLanguage()
   const c = t.case1
@@ -14,9 +24,21 @@ export default function Case1Page() {
       <main className="mx-auto max-w-3xl px-4 py-12">
         <article className="prose-custom">
           {/* Title */}
-          <h1 className="mb-12 font-mono text-xl font-semibold leading-tight tracking-tight sm:text-2xl">
+          <h1 className="mb-6 font-mono text-xl font-semibold leading-tight tracking-tight sm:text-2xl">
             {c.title}
           </h1>
+
+          {/* Tech Stack Tags */}
+          <div className="mb-12 flex flex-wrap gap-2">
+            {TECH_STACK.map((tech) => (
+              <span
+                key={tech}
+                className="rounded-full border border-border bg-muted/50 px-3 py-1 font-mono text-xs text-muted-foreground"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
 
           {/* Context */}
           <Section title={c.sections.context.title}>

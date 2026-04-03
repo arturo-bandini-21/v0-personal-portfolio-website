@@ -16,7 +16,7 @@ export const translations = {
     case1Title: "Sistema de analítica para producto B2B",
     case1Subtitle: "Yavendió",
     case2Title: "Producto educativo con automatización",
-    case2Subtitle: "Sesiones de aprendizaje",
+    case2Subtitle: "TuThorIA",
     
     // External links
     linkedin: "LinkedIn",
@@ -265,7 +265,7 @@ Uno de los fundadores contaba con una audiencia de aproximadamente 50,000 seguid
     case1Title: "Analytics system for B2B product",
     case1Subtitle: "Yavendió",
     case2Title: "Educational product with automation",
-    case2Subtitle: "Learning sessions",
+    case2Subtitle: "TuThorIA",
     
     // External links
     linkedin: "LinkedIn",
@@ -514,7 +514,7 @@ One of the founders had an audience of approximately 50,000 followers, which rep
     case1Title: "Sistema de analytics para produto B2B",
     case1Subtitle: "Yavendió",
     case2Title: "Produto educacional com automação",
-    case2Subtitle: "Sessões de aprendizagem",
+    case2Subtitle: "TuThorIA",
     
     // External links
     linkedin: "LinkedIn",

@@ -45,7 +45,7 @@ export default function Home() {
           {/* External Links */}
           <div className="mt-6 flex items-center gap-4">
             <a
-              href="https://linkedin.com/in/alonsolamilla"
+              href="https://www.linkedin.com/in/alonso-diego-lamilla-meza"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -54,7 +54,7 @@ export default function Home() {
               <span>{t.linkedin}</span>
             </a>
             <a
-              href="https://github.com/alonsolamilla"
+              href="https://github.com/arturo-bandini-21"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"

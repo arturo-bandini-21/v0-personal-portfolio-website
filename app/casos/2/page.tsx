@@ -5,7 +5,19 @@ import { Header } from "@/components/header"
 import { useLanguage } from "@/lib/language-context"
 
 // GitHub repository URL - easily editable
-const GITHUB_REPO_URL = "https://github.com/alonsolamilla/edu-sessions-bot"
+const GITHUB_REPO_URL = "https://github.com/arturo-bandini-21/tuthoria_1"
+
+// Project name
+const PROJECT_NAME = "TuThorIA"
+
+const TECH_STACK = [
+  "Python",
+  "WhatsApp API",
+  "OpenAI API",
+  "Looker Studio",
+  "Web Scraping",
+  "Data Pipelines",
+]
 
 export default function Case2Page() {
   const { t } = useLanguage()
@@ -18,9 +30,21 @@ export default function Case2Page() {
       <main className="mx-auto max-w-3xl px-4 py-12">
         <article className="prose-custom">
           {/* Title */}
-          <h1 className="mb-12 font-mono text-xl font-semibold leading-tight tracking-tight sm:text-2xl">
+          <h1 className="mb-6 font-mono text-xl font-semibold leading-tight tracking-tight sm:text-2xl">
             {c.title}
           </h1>
+
+          {/* Tech Stack Tags */}
+          <div className="mb-12 flex flex-wrap gap-2">
+            {TECH_STACK.map((tech) => (
+              <span
+                key={tech}
+                className="rounded-full border border-border bg-muted/50 px-3 py-1 font-mono text-xs text-muted-foreground"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
 
           {/* Context */}
           <Section title={c.sections.context.title}>
