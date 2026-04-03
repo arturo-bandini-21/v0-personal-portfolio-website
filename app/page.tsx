@@ -74,34 +74,58 @@ export default function Home() {
           <div className="flex flex-col gap-4">
             {/* Case 1 */}
             <Link
-              href="/casos/1"
-              className="group flex items-start justify-between rounded-lg border border-border bg-card p-4 transition-colors hover:border-foreground/20 hover:bg-accent/50"
+              href="/cases/1"
+              className="group flex flex-col rounded-lg border border-border bg-card p-4 transition-colors hover:border-foreground/20 hover:bg-accent/50"
             >
-              <div className="flex-1">
-                <h3 className="font-mono text-sm font-medium group-hover:text-foreground">
-                  {t.case1Title}
-                </h3>
-                <p className="mt-1 font-mono text-xs text-muted-foreground">
-                  {t.case1Subtitle}
-                </p>
+              <div className="flex items-start justify-between">
+                <div className="flex-1">
+                  <h3 className="font-mono text-sm font-medium group-hover:text-foreground">
+                    {t.case1Title}
+                  </h3>
+                  <p className="mt-1 font-mono text-xs text-muted-foreground">
+                    {t.case1Subtitle}
+                  </p>
+                </div>
+                <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-foreground" />
               </div>
-              <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-foreground" />
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {["PostgreSQL", "SQL", "Looker Studio", "Metabase", "Slack API", "PostHog"].map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-border bg-muted/50 px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </Link>
 
             {/* Case 2 */}
             <Link
-              href="/casos/2"
-              className="group flex items-start justify-between rounded-lg border border-border bg-card p-4 transition-colors hover:border-foreground/20 hover:bg-accent/50"
+              href="/cases/2"
+              className="group flex flex-col rounded-lg border border-border bg-card p-4 transition-colors hover:border-foreground/20 hover:bg-accent/50"
             >
-              <div className="flex-1">
-                <h3 className="font-mono text-sm font-medium group-hover:text-foreground">
-                  {t.case2Title}
-                </h3>
-                <p className="mt-1 font-mono text-xs text-muted-foreground">
-                  {t.case2Subtitle}
-                </p>
+              <div className="flex items-start justify-between">
+                <div className="flex-1">
+                  <h3 className="font-mono text-sm font-medium group-hover:text-foreground">
+                    {t.case2Title}
+                  </h3>
+                  <p className="mt-1 font-mono text-xs text-muted-foreground">
+                    {t.case2Subtitle}
+                  </p>
+                </div>
+                <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-foreground" />
               </div>
-              <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-foreground" />
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {["Python", "WhatsApp API", "OpenAI API", "Looker Studio", "Web Scraping"].map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-border bg-muted/50 px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </Link>
           </div>
         </section>

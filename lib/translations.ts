@@ -160,13 +160,13 @@ Al momento de mi ingreso, la empresa no contaba con un sistema estructurado de m
 
     // Case 2 content
     case2: {
-      title: "Desarrollo de producto educativo con automatización y monetización basada en datos",
+      title: "TuThorIA: Desarrollo de producto educativo con automatización y monetización basada en datos",
       sections: {
         context: {
           title: "Contexto",
           content: `Un grupo de docentes buscaba digitalizar la creación de sesiones de aprendizaje, un proceso obligatorio, manual y altamente demandante en tiempo.
 
-Uno de los fundadores contaba con una audiencia de aproximadamente 50,000 seguidores, lo que representaba una oportunidad clara de distribución, pero no existía un producto tecnológico que capitalizara esa demanda.`
+Uno de los fundadores contaba con una audiencia de aproximadamente 50,000 seguidores, lo que representaba una oportunidad clara de distribución, pero no existía un producto tecnológico que capitalizara esa demanda. De esta necesidad nació TuThorIA.`
         },
         problem: {
           title: "Problema",
@@ -180,7 +180,7 @@ Uno de los fundadores contaba con una audiencia de aproximadamente 50,000 seguid
         },
         approach: {
           title: "Enfoque",
-          content: `Se abordó como construcción de MVP desde cero:`,
+          content: `TuThorIA se abordó como construcción de MVP desde cero:`,
           list: [
             "definición de requerimientos a partir del problema del usuario",
             "diseño de solución conversacional accesible (WhatsApp)",
@@ -190,7 +190,7 @@ Uno de los fundadores contaba con una audiencia de aproximadamente 50,000 seguid
         },
         implementation: {
           title: "Implementación",
-          content: `Se desarrolló un sistema conversacional que:`,
+          content: `Se desarrolló TuThorIA como un sistema conversacional que:`,
           list: [
             "recopila información del docente",
             "sugiere contenido basado en estructura curricular",
@@ -201,7 +201,7 @@ Uno de los fundadores contaba con una audiencia de aproximadamente 50,000 seguid
         result: {
           title: "Resultado",
           list: [
-            "MVP funcional entregado",
+            "TuThorIA MVP funcional entregado",
             "producto listo para uso por la audiencia del cliente",
             "validación de la viabilidad de automatizar la creación de contenido educativo"
           ]
@@ -409,13 +409,13 @@ At the time of my joining, the company did not have a structured metrics system.
 
     // Case 2 content
     case2: {
-      title: "Development of educational product with automation and data-based monetization",
+      title: "TuThorIA: Development of educational product with automation and data-based monetization",
       sections: {
         context: {
           title: "Context",
           content: `A group of teachers sought to digitize the creation of learning sessions, a mandatory, manual, and highly time-demanding process.
 
-One of the founders had an audience of approximately 50,000 followers, which represented a clear distribution opportunity, but there was no technological product to capitalize on that demand.`
+One of the founders had an audience of approximately 50,000 followers, which represented a clear distribution opportunity, but there was no technological product to capitalize on that demand. From this need, TuThorIA was born.`
         },
         problem: {
           title: "Problem",
@@ -429,7 +429,7 @@ One of the founders had an audience of approximately 50,000 followers, which rep
         },
         approach: {
           title: "Approach",
-          content: `It was approached as building an MVP from scratch:`,
+          content: `TuThorIA was approached as building an MVP from scratch:`,
           list: [
             "requirements definition based on user problem",
             "design of accessible conversational solution (WhatsApp)",
@@ -439,7 +439,7 @@ One of the founders had an audience of approximately 50,000 followers, which rep
         },
         implementation: {
           title: "Implementation",
-          content: `A conversational system was developed that:`,
+          content: `TuThorIA was developed as a conversational system that:`,
           list: [
             "collects teacher information",
             "suggests content based on curricular structure",
@@ -450,7 +450,7 @@ One of the founders had an audience of approximately 50,000 followers, which rep
         result: {
           title: "Result",
           list: [
-            "functional MVP delivered",
+            "TuThorIA functional MVP delivered",
             "product ready for use by client's audience",
             "validation of the viability of automating educational content creation"
           ]
@@ -550,7 +550,7 @@ No momento da minha entrada, a empresa não contava com um sistema estruturado d
           ],
           content2: `Isso gerava múltiplas limitações:`,
           list2: [
-            "ausência de visibilidade em tempo real",
+            "aus��ncia de visibilidade em tempo real",
             "impossibilidade de medir conversão de forma confiável",
             "dificuldade para identificar quais clientes ou leads tinham melhor desempenho",
             "nenhuma capacidade de segmentação ou atribuição",
@@ -658,13 +658,13 @@ No momento da minha entrada, a empresa não contava com um sistema estruturado d
 
     // Case 2 content
     case2: {
-      title: "Desenvolvimento de produto educacional com automação e monetização baseada em dados",
+      title: "TuThorIA: Desenvolvimento de produto educacional com automação e monetização baseada em dados",
       sections: {
         context: {
           title: "Contexto",
           content: `Um grupo de professores buscava digitalizar a criação de sessões de aprendizagem, um processo obrigatório, manual e altamente demandante em tempo.
 
-Um dos fundadores contava com uma audiência de aproximadamente 50.000 seguidores, o que representava uma oportunidade clara de distribuição, mas não existia um produto tecnológico que capitalizasse essa demanda.`
+Um dos fundadores contava com uma audiência de aproximadamente 50.000 seguidores, o que representava uma oportunidade clara de distribuição, mas não existia um produto tecnológico que capitalizasse essa demanda. Dessa necessidade nasceu TuThorIA.`
         },
         problem: {
           title: "Problema",
@@ -678,7 +678,7 @@ Um dos fundadores contava com uma audiência de aproximadamente 50.000 seguidore
         },
         approach: {
           title: "Abordagem",
-          content: `Foi abordado como construção de MVP do zero:`,
+          content: `TuThorIA foi abordado como construção de MVP do zero:`,
           list: [
             "definição de requisitos a partir do problema do usuário",
             "design de solução conversacional acessível (WhatsApp)",
@@ -688,7 +688,7 @@ Um dos fundadores contava com uma audiência de aproximadamente 50.000 seguidore
         },
         implementation: {
           title: "Implementação",
-          content: `Foi desenvolvido um sistema conversacional que:`,
+          content: `TuThorIA foi desenvolvido como um sistema conversacional que:`,
           list: [
             "coleta informações do professor",
             "sugere conteúdo baseado na estrutura curricular",
@@ -699,7 +699,7 @@ Um dos fundadores contava com uma audiência de aproximadamente 50.000 seguidore
         result: {
           title: "Resultado",
           list: [
-            "MVP funcional entregue",
+            "TuThorIA MVP funcional entregue",
             "produto pronto para uso pela audiência do cliente",
             "validação da viabilidade de automatizar a criação de conteúdo educacional"
           ]
