@@ -21,7 +21,9 @@ export const translations = {
     // External links
     linkedin: "LinkedIn",
     github: "GitHub",
-    
+    emailMe: "Email",
+    callMe: "Llámame",
+
     // Theme
     lightMode: "Modo claro",
     darkMode: "Modo oscuro",
@@ -270,7 +272,9 @@ Uno de los fundadores contaba con una audiencia de aproximadamente 50,000 seguid
     // External links
     linkedin: "LinkedIn",
     github: "GitHub",
-    
+    emailMe: "Email",
+    callMe: "Call me",
+
     // Theme
     lightMode: "Light mode",
     darkMode: "Dark mode",
@@ -519,7 +523,9 @@ One of the founders had an audience of approximately 50,000 followers, which rep
     // External links
     linkedin: "LinkedIn",
     github: "GitHub",
-    
+    emailMe: "Email",
+    callMe: "Ligue-me",
+
     // Theme
     lightMode: "Modo claro",
     darkMode: "Modo escuro",
