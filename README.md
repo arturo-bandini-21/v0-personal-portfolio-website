@@ -1,4 +1,4 @@
-# v0-personal-portfolio-website
+# v0-personal-pm-portfolio-website
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
 
