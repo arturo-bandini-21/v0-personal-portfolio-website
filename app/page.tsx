@@ -20,7 +20,7 @@ export default function Home() {
             {/* Avatar placeholder - easily replaceable */}
             <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border border-border bg-muted">
               <Image
-                src="/avatar.jpg"
+                src="/avatar.png"
                 alt="Alonso Lamilla"
                 fill
                 className="object-cover"
