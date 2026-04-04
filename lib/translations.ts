@@ -17,6 +17,8 @@ export const translations = {
     case1Subtitle: "Yavendió",
     case2Title: "Producto educativo con automatización",
     case2Subtitle: "TuThorIA",
+    case3Title: "Optimización de rating en tienda",
+    case3Subtitle: "Favo",
     
     // External links
     linkedin: "LinkedIn",
@@ -249,6 +251,44 @@ Uno de los fundadores contaba con una audiencia de aproximadamente 50,000 seguid
           linkText: "Ver repositorio en GitHub"
         }
       }
+    },
+
+    // Case 3 content
+    case3: {
+      title: "Optimización de rating en tienda (Favo)",
+      sections: {
+        context: {
+          title: "Contexto",
+          content: "Aplicación móvil con bajo rating en tienda (~3.1), afectando la percepción del producto y potencialmente la conversión en adquisición."
+        },
+        problem: {
+          title: "Problema",
+          content: "El bajo rating reflejaba fricciones en la experiencia del usuario y ausencia de mecanismos para capturar feedback positivo de usuarios satisfechos."
+        },
+        approach: {
+          title: "Enfoque",
+          content: "Co-lideré una estrategia de activación de reseñas, orientada a incentivar a usuarios activos y satisfechos a calificar la aplicación."
+        },
+        implementation: {
+          title: "Implementación",
+          list: [
+            "diseño de estrategia de comunicación hacia usuarios",
+            "activación de solicitudes de reseñas en momentos clave de uso",
+            "coordinación con equipo para ejecución de la estrategia"
+          ]
+        },
+        result: {
+          title: "Resultado",
+          content: "Incremento del rating de la aplicación de ~3.1 a ~4.5 (+1.4)."
+        },
+        impact: {
+          title: "Impacto",
+          list: [
+            "mejora significativa en la percepción del producto en tienda",
+            "fortalecimiento del canal de adquisición orgánico"
+          ]
+        }
+      }
     }
   },
 
@@ -268,6 +308,8 @@ Uno de los fundadores contaba con una audiencia de aproximadamente 50,000 seguid
     case1Subtitle: "Yavendió",
     case2Title: "Educational product with automation",
     case2Subtitle: "TuThorIA",
+    case3Title: "App store rating optimization",
+    case3Subtitle: "Favo",
     
     // External links
     linkedin: "LinkedIn",
@@ -500,6 +542,44 @@ One of the founders had an audience of approximately 50,000 followers, which rep
           linkText: "View repository on GitHub"
         }
       }
+    },
+
+    // Case 3 content
+    case3: {
+      title: "App store rating optimization (Favo)",
+      sections: {
+        context: {
+          title: "Context",
+          content: "Mobile app with low store rating (~3.1), affecting product perception and potentially acquisition conversion."
+        },
+        problem: {
+          title: "Problem",
+          content: "The low rating reflected friction in the user experience and the absence of mechanisms to capture positive feedback from satisfied users."
+        },
+        approach: {
+          title: "Approach",
+          content: "I co-led a review activation strategy, aimed at encouraging active and satisfied users to rate the app."
+        },
+        implementation: {
+          title: "Implementation",
+          list: [
+            "design of user communication strategy",
+            "activation of review requests at key usage moments",
+            "coordination with team for strategy execution"
+          ]
+        },
+        result: {
+          title: "Result",
+          content: "App rating increase from ~3.1 to ~4.5 (+1.4)."
+        },
+        impact: {
+          title: "Impact",
+          list: [
+            "significant improvement in product perception in store",
+            "strengthening of organic acquisition channel"
+          ]
+        }
+      }
     }
   },
 
@@ -519,6 +599,8 @@ One of the founders had an audience of approximately 50,000 followers, which rep
     case1Subtitle: "Yavendió",
     case2Title: "Produto educacional com automação",
     case2Subtitle: "TuThorIA",
+    case3Title: "Otimização de rating na loja",
+    case3Subtitle: "Favo",
     
     // External links
     linkedin: "LinkedIn",
@@ -749,6 +831,44 @@ Um dos fundadores contava com uma audiência de aproximadamente 50.000 seguidore
           title: "Repositório",
           content: "O código fonte deste projeto está disponível no GitHub:",
           linkText: "Ver repositório no GitHub"
+        }
+      }
+    },
+
+    // Case 3 content
+    case3: {
+      title: "Otimização de rating na loja (Favo)",
+      sections: {
+        context: {
+          title: "Contexto",
+          content: "Aplicativo móvel com baixo rating na loja (~3.1), afetando a percepção do produto e potencialmente a conversão em aquisição."
+        },
+        problem: {
+          title: "Problema",
+          content: "O baixo rating refletia fricções na experiência do usuário e ausência de mecanismos para capturar feedback positivo de usuários satisfeitos."
+        },
+        approach: {
+          title: "Abordagem",
+          content: "Co-liderei uma estratégia de ativação de avaliações, orientada a incentivar usuários ativos e satisfeitos a avaliar o aplicativo."
+        },
+        implementation: {
+          title: "Implementação",
+          list: [
+            "design de estratégia de comunicação para usuários",
+            "ativação de solicitações de avaliação em momentos-chave de uso",
+            "coordenação com equipe para execução da estratégia"
+          ]
+        },
+        result: {
+          title: "Resultado",
+          content: "Aumento do rating do aplicativo de ~3.1 para ~4.5 (+1.4)."
+        },
+        impact: {
+          title: "Impacto",
+          list: [
+            "melhoria significativa na percepção do produto na loja",
+            "fortalecimento do canal de aquisição orgânico"
+          ]
         }
       }
     }
