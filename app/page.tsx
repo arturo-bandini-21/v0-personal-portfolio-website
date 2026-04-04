@@ -151,6 +151,33 @@ export default function Home() {
                 ))}
               </div>
             </Link>
+            {/* Case 3 */}
+            <Link
+              href="/cases/favo-rating"
+              className="group flex flex-col rounded-lg border border-border bg-card p-4 transition-colors hover:border-foreground/20 hover:bg-accent/50"
+            >
+              <div className="flex items-start justify-between">
+                <div className="flex-1">
+                  <h3 className="font-mono text-sm font-medium group-hover:text-foreground">
+                    {t.case3Title}
+                  </h3>
+                  <p className="mt-1 font-mono text-xs text-muted-foreground">
+                    {t.case3Subtitle}
+                  </p>
+                </div>
+                <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-foreground" />
+              </div>
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {["Growth", "App Store Optimization", "User Activation"].map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-border bg-muted/50 px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </Link>
           </div>
         </section>
       </main>
