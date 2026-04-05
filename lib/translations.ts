@@ -20,6 +20,14 @@ export const translations = {
     case3Title: "Optimización de rating en tienda",
     case3Subtitle: "Favo",
     
+    // Participaciones
+    participations: "Participaciones",
+    participation1Role: "Panelista",
+    participation1Event: "Producto en Startups",
+    participation1Org: "PM Beers Product Club, Lima",
+    participation1CommunityLink: "PM Beers",
+    participation1EventLink: "Evento",
+
     // External links
     linkedin: "LinkedIn",
     github: "GitHub",
@@ -311,6 +319,14 @@ Uno de los fundadores contaba con una audiencia de aproximadamente 50,000 seguid
     case3Title: "App store rating optimization",
     case3Subtitle: "Favo",
     
+    // Participaciones
+    participations: "Participations",
+    participation1Role: "Panelist",
+    participation1Event: "Producto en Startups",
+    participation1Org: "PM Beers Product Club, Lima",
+    participation1CommunityLink: "PM Beers",
+    participation1EventLink: "Event",
+
     // External links
     linkedin: "LinkedIn",
     github: "GitHub",
@@ -602,6 +618,14 @@ One of the founders had an audience of approximately 50,000 followers, which rep
     case3Title: "Otimização de rating na loja",
     case3Subtitle: "Favo",
     
+    // Participaciones
+    participations: "Participações",
+    participation1Role: "Painelista",
+    participation1Event: "Producto en Startups",
+    participation1Org: "PM Beers Product Club, Lima",
+    participation1CommunityLink: "PM Beers",
+    participation1EventLink: "Evento",
+
     // External links
     linkedin: "LinkedIn",
     github: "GitHub",

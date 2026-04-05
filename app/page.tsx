@@ -1,14 +1,21 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Mail, Phone } from "lucide-react"
+import { ArrowRight, Mail, Phone, ExternalLink } from "lucide-react"
 import { FaLinkedinIn, FaGithub } from "react-icons/fa"
 import { Header } from "@/components/header"
 import { useLanguage } from "@/lib/language-context"
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/components/ui/dialog"
 
 export default function Home() {
   const { t } = useLanguage()
+  const [imageOpen, setImageOpen] = useState(false)
 
   return (
     <div className="min-h-screen bg-background">
@@ -153,7 +160,7 @@ export default function Home() {
             </Link>
             {/* Case 3 */}
             <Link
-              href="/cases/favo-rating"
+              href="/cases/3"
               className="group flex flex-col rounded-lg border border-border bg-card p-4 transition-colors hover:border-foreground/20 hover:bg-accent/50"
             >
               <div className="flex items-start justify-between">
@@ -179,6 +186,70 @@ export default function Home() {
               </div>
             </Link>
           </div>
+        </section>
+
+        {/* Participaciones Section */}
+        <section className="mt-16">
+          <h2 className="mb-6 font-mono text-xs font-medium uppercase tracking-wider text-muted-foreground">
+            {t.participations}
+          </h2>
+
+          <div className="flex items-start gap-4 rounded-lg border border-border bg-card p-4">
+            <button
+              onClick={() => setImageOpen(true)}
+              className="relative h-20 w-20 shrink-0 overflow-hidden rounded-md border border-border bg-muted cursor-pointer transition-opacity hover:opacity-80"
+            >
+              <Image
+                src="/images/participaciones/pm-beers-evento.jpg"
+                alt={t.participation1Event}
+                fill
+                className="object-cover"
+              />
+            </button>
+
+            <div className="flex flex-col gap-1">
+              <p className="font-mono text-sm text-foreground">
+                {t.participation1Role} · &ldquo;{t.participation1Event}&rdquo;
+              </p>
+              <p className="font-mono text-xs text-muted-foreground">
+                {t.participation1Org}
+              </p>
+              <div className="mt-1 flex gap-3">
+                <a
+                  href="https://www.pmbeers.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  <ExternalLink className="h-3 w-3" />
+                  {t.participation1CommunityLink}
+                </a>
+                <a
+                  href="https://luma.com/zq4hwg5a"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  <ExternalLink className="h-3 w-3" />
+                  {t.participation1EventLink}
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <Dialog open={imageOpen} onOpenChange={setImageOpen}>
+            <DialogContent className="max-w-lg p-2">
+              <DialogTitle className="sr-only">{t.participation1Event}</DialogTitle>
+              <div className="relative aspect-square w-full overflow-hidden rounded-md">
+                <Image
+                  src="/images/participaciones/pm-beers-evento.jpg"
+                  alt={t.participation1Event}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </DialogContent>
+          </Dialog>
         </section>
       </main>
 
