@@ -8,7 +8,7 @@ export const translations = {
     backToHome: "Volver al inicio",
     
     // Home
-    headline: "Senior Product Analyst | Data & Product",
+    headline: "Product Analyst | Data & Product",
     description: "Analizo, construyo y optimizo productos digitales con foco en métricas, conversión y sistemas de decisión.",
     viewCase: "Ver caso",
     
@@ -307,7 +307,7 @@ Uno de los fundadores contaba con una audiencia de aproximadamente 50,000 seguid
     backToHome: "Back to home",
     
     // Home
-    headline: "Senior Product Analyst | Data & Product",
+    headline: "Product Analyst | Data & Product",
     description: "I analyze, build, and optimize digital products with a focus on metrics, conversion, and decision systems.",
     viewCase: "View case",
     
@@ -606,7 +606,7 @@ One of the founders had an audience of approximately 50,000 followers, which rep
     backToHome: "Voltar ao início",
     
     // Home
-    headline: "Senior Product Analyst | Data & Product",
+    headline: "Product Analyst | Data & Product",
     description: "Analiso, construo e otimizo produtos digitais com foco em métricas, conversão e sistemas de decisão.",
     viewCase: "Ver caso",
     
