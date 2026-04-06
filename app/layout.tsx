@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Alonso Lamilla | Senior Product Analyst",
+  title: "Alonso Lamilla | Product Analyst",
   description:
     "Analizo, construyo y optimizo productos digitales con foco en métricas, conversión y sistemas de decisión.",
   generator: "v0.app",
