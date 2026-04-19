@@ -19,7 +19,9 @@ export const translations = {
     case2Subtitle: "TuThorIA",
     case3Title: "Optimización de rating en tienda",
     case3Subtitle: "Favo",
-    
+    case4Title: "A/B test para selección de modelo LLM",
+    case4Subtitle: "B2B conversational commerce",
+
     // Participaciones
     participations: "Participaciones",
     participation1Role: "Panelista",
@@ -297,6 +299,66 @@ Uno de los fundadores contaba con una audiencia de aproximadamente 50,000 seguid
           ]
         }
       }
+    },
+
+    // Case 4 content
+    case4: {
+      title: "Diseño de A/B test para selección de modelo LLM en producción",
+      sections: {
+        context: {
+          title: "Contexto",
+          content: `Operamos una plataforma de comercio conversacional donde los merchants usan un asistente basado en LLM para conversar con clientes e impulsar ventas sobre canales de mensajería. El modelo base es una palanca con impacto real: un modelo mejor puede significar más conversiones, pero también mayor costo por mensaje.
+
+Apareció una nueva generación del modelo base (candidato). En teoría prometía mejor razonamiento, pero "en teoría" no paga las cuentas: antes de comprometer una migración necesitábamos evidencia en producción, con merchants reales y conversaciones reales.`
+        },
+        problem: {
+          title: "Problema",
+          content: "Un A/B limpio sobre esto parece simple hasta que lo mirás de cerca. Tres cosas lo hacían no trivial:",
+          list: [
+            "Conversiones ralas y merchants heterogéneos: las conversiones por conversación son eventos ralos, y los merchants de mayor volumen abarcan verticales, tipos de catálogo y tasas base de conversión distintas.",
+            "Trampa de la unidad de análisis: la unidad natural de asignación (sesión, que se resetea tras un período sin respuesta del cliente) no es la unidad natural de análisis. Dos sesiones de una misma conversación no son independientes — analizar a nivel sesión produciría pseudo-replicación e inflaría los p-values.",
+            "Riesgo asimétrico de rollout: rollear un modelo peor daña trust y revenue directamente; rollear uno mejor tarde es recuperable. El test debía proteger el downside."
+          ]
+        },
+        approach: {
+          title: "Metodología",
+          content: "Diseño del experimento:",
+          list: [
+            "Asignación: aleatoria 50/50 a nivel sesión de conversación vía feature flag, con toda la cohorte expuesta a ambas variantes.",
+            "Unidad de análisis: conversación, no sesión, para evitar pseudo-replicación. Las conversaciones mixtas (que vieron ambos modelos) se excluyeron del análisis.",
+            "Métricas: evento de venta marcada como primaria (cobertura completa) y orden registrada como secundaria (cobertura parcial). Ticket promedio por currency como exploratoria.",
+            "Estadística: test de dos proporciones (z-test) para conversión, Mann-Whitney U para ticket (no asume normalidad en montos). Umbral convencional de significancia.",
+            "Ventana: varias semanas de tráfico en producción."
+          ]
+        },
+        implementation: {
+          title: "Validación del diseño",
+          content: "Antes de mirar los resultados, verifiqué que el test se comportara como estaba diseñado:",
+          list: [
+            "Asignación sticky: la gran mayoría de las conversaciones quedaron pegadas a un solo modelo a lo largo de sus sesiones. El resto se excluyó del análisis.",
+            "Split balanceado: desviación mínima del 50/50 a nivel agregado y todos los merchants individuales dentro del rango esperado. Sin drift.",
+            "Tracking de lift acumulado: el lift se volvió significativo temprano en la ventana y se mantuvo por encima del umbral hasta el cierre. Resultado robusto, no una ventana afortunada."
+          ]
+        },
+        result: {
+          title: "Resultados",
+          list: [
+            "Lift agregado de conversión de dos dígitos a favor del modelo candidato, estadísticamente significativo. Magnitud similar en la métrica secundaria de orden registrada.",
+            "Lift dramáticamente mayor — varias veces el agregado — concentrado en el segmento de merchants con catálogo integrado a una plataforma e-commerce de terceros. En el segmento con catálogo nativo el lift fue mucho menor y no significativo.",
+            "Ticket promedio sin cambios significativos en ninguna combinación merchant/currency. El valor está en volumen de ventas, no en ticket.",
+            "Un par de merchants mostraron lift negativo relevante: ambos con catálogo nativo, volumen medio, tasa base alta de conversión y prompts altamente customizados."
+          ]
+        },
+        learnings: {
+          title: "Aprendizajes",
+          list: [
+            "El promedio escondía la historia real: el lift agregado era también un spread amplio entre merchants, desde fuertemente positivo hasta claramente negativo. La segmentación por fuente de catálogo explicó casi todo el comportamiento — la segmentación por país casi nada.",
+            "Data de catálogo más estructurada amplifica la capacidad del modelo. Mecanismo probable: los merchants con plataforma integrada manejan promociones como data estructurada; los merchants con catálogo nativo las encastran en el prompt en texto libre, donde un modelo más capaz es más sensible a inconsistencias.",
+            "Asignación a nivel sesión está bien si analizás a nivel conversación. El alto sticky rate confirmó que en la práctica eran casi equivalentes, pero la elección metodológica impactaba los p-values — para próximos experimentos, conviene mover la granularidad del feature flag a nivel conversación.",
+            "Antes de escalar, el costo es la decisión bloqueante. Un lift porcentual dado es una decisión distinta a 1.5x, 3x o 10x de costo de inferencia. El tracking de costo por merchant es el análisis gating antes de decidir un rollout."
+          ]
+        }
+      }
     }
   },
 
@@ -318,6 +380,8 @@ Uno de los fundadores contaba con una audiencia de aproximadamente 50,000 seguid
     case2Subtitle: "TuThorIA",
     case3Title: "App store rating optimization",
     case3Subtitle: "Favo",
+    case4Title: "A/B test for LLM model selection",
+    case4Subtitle: "B2B conversational commerce",
     
     // Participaciones
     participations: "Participations",
@@ -596,6 +660,66 @@ One of the founders had an audience of approximately 50,000 followers, which rep
           ]
         }
       }
+    },
+
+    // Case 4 content
+    case4: {
+      title: "A/B test design for LLM model selection in production",
+      sections: {
+        context: {
+          title: "Context",
+          content: `We operate a conversational commerce platform where merchants use an LLM-powered assistant to engage customers and drive sales over messaging channels. The underlying model is a business-relevant lever: a better model can mean more conversions, but it also costs more per message.
+
+A new generation of our base model had just become available. On paper it promised stronger reasoning, but "on paper" doesn't pay the bills — before committing to a full migration we needed production evidence of the lift, across real merchants and real conversations.`
+        },
+        problem: {
+          title: "Problem",
+          content: "A clean A/B on this looks simple until you look closer. Three things made it non-trivial:",
+          list: [
+            "Sparse, heterogeneous conversions: conversions per conversation are rare events, and the highest-volume merchants span different verticals, catalog types, and baseline conversion rates.",
+            "Analysis-unit trap: the natural assignment unit (session, reset after a window without customer reply) is not the natural analysis unit. Two sessions inside the same conversation aren't independent — analyzing at the session level would pseudo-replicate the data and inflate p-values.",
+            "Asymmetric rollout risk: shipping a worse model hurts revenue and merchant trust directly; shipping a better model late is recoverable. The test had to protect the downside."
+          ]
+        },
+        approach: {
+          title: "Methodology",
+          content: "Experimental design:",
+          list: [
+            "Assignment: random 50/50 at conversation-session level via a feature flag, with the full cohort exposed to both variants.",
+            "Unit of analysis: conversation, not session, to avoid pseudo-replication. Conversations that saw both models (mixed) were excluded from analysis.",
+            "Metrics: a sale-mark event as the primary conversion metric (full coverage) and an order-level event as secondary (partial coverage). Average order value by currency as exploratory.",
+            "Statistics: two-proportion z-test for conversion, Mann-Whitney U for AOV (doesn't assume normality on amounts). Conventional significance threshold.",
+            "Window: multi-week production traffic."
+          ]
+        },
+        implementation: {
+          title: "Design validation",
+          content: "Before looking at results I verified the test had actually behaved as designed:",
+          list: [
+            "Sticky assignment: the vast majority of conversations stayed on a single model across all their sessions. The rest were excluded from analysis.",
+            "Balanced split: negligible deviation from 50/50 at the aggregate, and every individual merchant within the expected range. No drift.",
+            "Cumulative lift tracking: the lift became significant early in the window and stayed above threshold through the end. Robust result, not a lucky window."
+          ]
+        },
+        result: {
+          title: "Results",
+          list: [
+            "Double-digit aggregate conversion lift in favor of the candidate model, statistically significant. Similar magnitude on the secondary order-level metric.",
+            "Dramatically larger lift — several times the aggregate — concentrated in merchants using an integrated third-party catalog platform. For merchants on the native catalog, the lift was much smaller and not significant.",
+            "No meaningful change in average order value on any merchant/currency pair. The gain is in sales volume, not ticket size.",
+            "A couple of merchants showed a material negative lift: both on the native catalog, medium volume, with a high baseline conversion rate and heavily customized prompts."
+          ]
+        },
+        learnings: {
+          title: "Learnings",
+          list: [
+            "The average hid the real story: the aggregate lift was also a wide spread across merchants, from strongly positive to clearly negative. Segmentation by catalog source explained most of the variance — segmentation by country explained almost none.",
+            "Richer structured catalog data amplifies model capability. Likely mechanism: merchants on an integrated platform handle promotions as structured data; merchants on the native catalog embed promotion rules into free-text prompts, where a more capable model is more sensitive to inconsistency.",
+            "Session-level assignment is fine if you analyze at conversation level. The high sticky rate confirmed the two were near-equivalent in practice, but the methodology choice mattered for p-values — future experiments should move the flag granularity to conversation level.",
+            "Before scaling, cost is the gating decision. A given percentage lift is a different call at 1.5x, 3x, or 10x inference cost. Per-merchant cost tracking is the blocking analysis before any rollout."
+          ]
+        }
+      }
     }
   },
 
@@ -617,6 +741,8 @@ One of the founders had an audience of approximately 50,000 followers, which rep
     case2Subtitle: "TuThorIA",
     case3Title: "Otimização de rating na loja",
     case3Subtitle: "Favo",
+    case4Title: "A/B test para seleção de modelo LLM",
+    case4Subtitle: "B2B conversational commerce",
     
     // Participaciones
     participations: "Participações",
@@ -892,6 +1018,66 @@ Um dos fundadores contava com uma audiência de aproximadamente 50.000 seguidore
           list: [
             "melhoria significativa na percepção do produto na loja",
             "fortalecimento do canal de aquisição orgânico"
+          ]
+        }
+      }
+    },
+
+    // Case 4 content
+    case4: {
+      title: "Design de A/B test para seleção de modelo LLM em produção",
+      sections: {
+        context: {
+          title: "Contexto",
+          content: `Operamos uma plataforma de comércio conversacional em que os merchants usam um assistente baseado em LLM para conversar com clientes e impulsionar vendas sobre canais de mensageria. O modelo base é uma alavanca relevante para o negócio: um modelo melhor pode significar mais conversões, mas também custa mais por mensagem.
+
+Surgiu uma nova geração do modelo base (candidato). No papel prometia melhor raciocínio, mas "no papel" não paga as contas — antes de comprometer uma migração completa, precisávamos de evidência em produção, com merchants reais e conversas reais.`
+        },
+        problem: {
+          title: "Problema",
+          content: "Um A/B limpo disso parece simples até olhar de perto. Três coisas tornavam não trivial:",
+          list: [
+            "Conversões esparsas e merchants heterogêneos: conversões por conversa são eventos raros, e os merchants de maior volume abrangem verticais, tipos de catálogo e taxas base de conversão distintas.",
+            "Armadilha da unidade de análise: a unidade natural de atribuição (sessão, que se reseta após um período sem resposta do cliente) não é a unidade natural de análise. Duas sessões de uma mesma conversa não são independentes — analisar a nível de sessão produziria pseudo-replicação e inflaria os p-values.",
+            "Risco assimétrico de rollout: lançar um modelo pior prejudica trust e revenue diretamente; lançar um melhor tarde é recuperável. O teste precisava proteger o downside."
+          ]
+        },
+        approach: {
+          title: "Metodologia",
+          content: "Design do experimento:",
+          list: [
+            "Atribuição: aleatória 50/50 a nível sessão de conversa via feature flag, com toda a cohort exposta a ambas variantes.",
+            "Unidade de análise: conversa, não sessão, para evitar pseudo-replicação. Conversas mistas (que viram ambos modelos) foram excluídas da análise.",
+            "Métricas: evento de marcação de venda como primária (cobertura completa) e pedido registrado como secundária (cobertura parcial). Ticket médio por currency como exploratória.",
+            "Estatística: teste de duas proporções (z-test) para conversão, Mann-Whitney U para ticket (não assume normalidade nos montantes). Limite convencional de significância.",
+            "Janela: várias semanas de tráfego em produção."
+          ]
+        },
+        implementation: {
+          title: "Validação do design",
+          content: "Antes de olhar os resultados verifiquei se o teste tinha se comportado como desenhado:",
+          list: [
+            "Atribuição sticky: a grande maioria das conversas ficou presa a um único modelo ao longo de suas sessões. O restante foi excluído da análise.",
+            "Split balanceado: desvio mínimo do 50/50 no agregado e cada merchant individual dentro do intervalo esperado. Sem drift.",
+            "Tracking de lift acumulado: o lift se tornou significativo cedo na janela e se manteve acima do limite até o fechamento. Resultado robusto, não uma janela afortunada."
+          ]
+        },
+        result: {
+          title: "Resultados",
+          list: [
+            "Lift agregado de conversão de dois dígitos a favor do modelo candidato, estatisticamente significativo. Magnitude similar na métrica secundária de pedido registrado.",
+            "Lift dramaticamente maior — várias vezes o agregado — concentrado no segmento de merchants com catálogo integrado a uma plataforma de e-commerce de terceiros. No segmento com catálogo nativo o lift foi muito menor e não significativo.",
+            "Ticket médio sem mudanças significativas em nenhuma combinação merchant/currency. O ganho está em volume de vendas, não em ticket.",
+            "Alguns merchants mostraram lift negativo relevante: ambos com catálogo nativo, volume médio, taxa base alta de conversão e prompts altamente customizados."
+          ]
+        },
+        learnings: {
+          title: "Aprendizados",
+          list: [
+            "A média escondia a história real: o lift agregado era também um spread amplo entre merchants, do fortemente positivo ao claramente negativo. A segmentação por fonte de catálogo explicou quase toda a variância — a segmentação por país quase nada.",
+            "Dados de catálogo mais estruturados amplificam a capacidade do modelo. Mecanismo provável: merchants com plataforma integrada gerenciam promoções como dado estruturado; merchants com catálogo nativo embutem regras de promoção em texto livre no prompt, onde um modelo mais capaz é mais sensível a inconsistências.",
+            "Atribuição a nível sessão está ok se você analisa a nível conversa. O alto sticky rate confirmou que na prática eram quase equivalentes, mas a escolha metodológica impactava os p-values — para próximos experimentos, mover a granularidade do flag para nível conversa.",
+            "Antes de escalar, o custo é a decisão bloqueante. Um lift percentual dado é uma decisão diferente a 1.5x, 3x ou 10x de custo de inferência. O tracking de custo por merchant é a análise gating antes de decidir um rollout."
           ]
         }
       }
