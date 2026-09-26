@@ -62,10 +62,10 @@ const work = [
 ]
 
 const howIWork = [
-  ["01 / Discover", "Interviews, operational signals, and product analytics to make the problem observable."],
-  ["02 / Decide", "Trade-offs, clear success criteria, and PRDs that turn evidence into an executable bet."],
-  ["03 / Build", "Prototypes, automations, and technical delivery with the team - not hand-offs into a void."],
-  ["04 / Measure", "Product metrics, growth loops, and evaluations that tell us what changed and what to do next."],
+  ["01/Discover", "Interviews, operational signals, and product analytics to make the problem observable."],
+  ["02/Decide", "Trade-offs, clear success criteria, and PRDs that turn evidence into an executable bet."],
+  ["03/Build", "Prototypes, automations, and technical delivery with the team - not hand-offs into a void."],
+  ["04/Measure", "Product metrics, growth loops, and evaluations that tell us what changed and what to do next."],
 ]
 
 export default function Home() {
