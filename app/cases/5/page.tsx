@@ -1,115 +1,37 @@
-"use client"
+﻿"use client"
 
 import { Header } from "@/components/header"
+import { useLanguage } from "@/lib/language-context"
 
-const tags = [
-  "Continuous discovery",
-  "Product operations",
-  "Kanban",
-  "Prioritization",
-  "Analytics",
-  "AI systems",
-]
+const caseContent = {
+  en: { title: "Squads Ventures: building a measurable product operating system for Referent", tags: ["Continuous discovery", "Product operations", "Kanban", "Prioritization", "Analytics", "AI systems"], sections: [
+    ["Context & problem", ["At Squads Ventures, I work on Referent, its AI SEO product. It needed faster, more reliable product decisions while customer feedback, delivery work, analytics freshness, and AI operating costs lived across separate workflows."]],
+    ["Discovery & evidence", ["I synthesized intelligence from 24 client-operations conversations across 9 accounts, alongside signals from 13 commercial opportunities. This created an evidence base for recurring pain points, product gaps, and opportunities - not a backlog driven by the loudest request."]],
+    ["Decisions", ["Designed a dual-track, continuous Discovery and Delivery model in Kanban so learning and execution could run in parallel.", "Introduced ICE prioritization and WIP limits to make sequencing explicit, protect focus, and expose blocked work.", "Made analytics freshness and variable AI cost observable product concerns."]],
+    ["Delivery", ["I owned the operating design, evidence synthesis, prioritization approach, and initiatives that made critical signals measurable.", "A scheduled analytics workflow brought freshness to 21 of 22 organizations and reduced a key manual refresh from 15 minutes to 3 minutes - about an 80% reduction.", "A warm-audit approach reduced a relevant AI operation's internal cost by 86%."]],
+    ["What I owned and what the team built", ["I owned: framing the operating problem, the dual-track model, evidence synthesis, prioritization mechanics, and decision-making around measurability.", "The team built: the production workflows, automations, and product improvements that made the system real. The outcomes are team outcomes; my contribution was connecting product judgment to technical execution."]],
+    ["Learning", ["For AI products, a roadmap is not enough. You need a system that continuously connects customer evidence, delivery capacity, product quality, and unit economics. The job is to make the next decision better than the last."]],
+  ] },
+  es: { title: "Squads Ventures: construyendo un sistema operativo de producto medible para Referent", tags: ["Discovery continuo", "Operaciones de producto", "Kanban", "Priorizaci\u00F3n", "Anal\u00EDtica", "Sistemas de IA"], sections: [
+    ["Contexto y problema", ["En Squads Ventures trabajo en Referent, su producto de SEO con IA. Necesitaba tomar decisiones de producto m\u00E1s r\u00E1pidas y confiables mientras el feedback de clientes, delivery, la frescura de anal\u00EDtica y los costos operativos de IA viv\u00EDan en flujos separados."]],
+    ["Discovery y evidencia", ["Sintetic\u00E9 inteligencia de 24 conversaciones de cliente-operaciones en 9 cuentas, junto con se\u00F1ales de 13 oportunidades comerciales. Eso cre\u00F3 una base de evidencia para dolores recurrentes, gaps de producto y oportunidades; no un backlog gobernado por el pedido m\u00E1s ruidoso."]],
+    ["Decisiones", ["Dise\u00F1\u00E9 un modelo continuo de Discovery y Delivery en dos tracks usando Kanban para que aprendizaje y ejecuci\u00F3n corrieran en paralelo.", "Introduje priorizaci\u00F3n ICE y l\u00EDmites de WIP para hacer expl\u00EDcita la secuencia, proteger foco y revelar trabajo bloqueado.", "Convert\u00ED la frescura de anal\u00EDtica y el costo variable de IA en preocupaciones observables de producto."]],
+    ["Delivery", ["Fui responsable del dise\u00F1o operativo, la s\u00EDntesis de evidencia, el enfoque de priorizaci\u00F3n y las iniciativas que hicieron medibles las se\u00F1ales cr\u00EDticas.", "Un workflow programado llev\u00F3 frescura a 21 de 22 organizaciones y redujo una actualizaci\u00F3n manual clave de 15 a 3 minutos: cerca de 80%.", "Un enfoque de warm audit redujo 86% el costo interno de una operaci\u00F3n relevante de IA."]],
+    ["Lo que lider\u00E9 y lo que construy\u00F3 el equipo", ["Lider\u00E9: el framing del problema operativo, el modelo de dos tracks, la s\u00EDntesis de evidencia, la mec\u00E1nica de priorizaci\u00F3n y las decisiones de medibilidad.", "El equipo construy\u00F3: workflows de producci\u00F3n, automatizaciones y mejoras de producto que hicieron real el sistema. Los resultados son del equipo; mi aporte fue conectar criterio de producto con ejecuci\u00F3n t\u00E9cnica."]],
+    ["Aprendizaje", ["Para productos de IA, un roadmap no alcanza. Necesit\u00E1s un sistema que conecte continuamente evidencia de clientes, capacidad de delivery, calidad de producto y unit economics. El trabajo es hacer que la pr\u00F3xima decisi\u00F3n sea mejor que la anterior."]],
+  ] },
+  pt: { title: "Squads Ventures: construindo um sistema operacional de produto mensur\u00E1vel para Referent", tags: ["Discovery cont\u00EDnuo", "Opera\u00E7\u00F5es de produto", "Kanban", "Prioriza\u00E7\u00E3o", "Analytics", "Sistemas de IA"], sections: [
+    ["Contexto e problema", ["Na Squads Ventures, trabalho no Referent, seu produto de SEO com IA. Ele precisava tomar decis\u00F5es de produto mais r\u00E1pidas e confi\u00E1veis enquanto feedback de clientes, delivery, atualiza\u00E7\u00E3o de analytics e custos de IA estavam em fluxos separados."]],
+    ["Discovery e evid\u00EAncia", ["Sintetizei intelig\u00EAncia de 24 conversas de cliente-opera\u00E7\u00F5es em 9 contas, junto com sinais de 13 oportunidades comerciais. Isso criou uma base de evid\u00EAncia para dores recorrentes, gaps de produto e oportunidades."]],
+    ["Decis\u00F5es", ["Desenhei um modelo cont\u00EDnuo de Discovery e Delivery em dois tracks usando Kanban.", "Introduzi prioriza\u00E7\u00E3o ICE e limites de WIP para proteger foco e revelar trabalho bloqueado.", "Tornei a atualiza\u00E7\u00E3o de analytics e o custo vari\u00E1vel de IA preocupa\u00E7\u00F5es observ\u00E1veis de produto."]],
+    ["Delivery", ["Fui respons\u00E1vel pelo desenho operacional, s\u00EDntese de evid\u00EAncias e abordagem de prioriza\u00E7\u00E3o.", "Um workflow programado levou atualiza\u00E7\u00E3o a 21 de 22 organiza\u00E7\u00F5es e reduziu uma atualiza\u00E7\u00E3o manual de 15 para 3 minutos: cerca de 80%.", "Uma abordagem de warm audit reduziu em 86% o custo interno de uma opera\u00E7\u00E3o relevante de IA."]],
+    ["O que liderei e o que o time construiu", ["Liderei: framing do problema operacional, modelo de dois tracks, s\u00EDntese de evid\u00EAncias, prioriza\u00E7\u00E3o e decis\u00F5es de mensurabilidade.", "O time construiu: workflows de produ\u00E7\u00E3o, automa\u00E7\u00F5es e melhorias de produto. Minha contribui\u00E7\u00E3o foi conectar julgamento de produto \u00E0 execu\u00E7\u00E3o t\u00E9cnica."]],
+    ["Aprendizado", ["Para produtos de IA, um roadmap n\u00E3o basta. Voc\u00EA precisa de um sistema que conecte continuamente evid\u00EAncia de clientes, capacidade de delivery, qualidade de produto e unit economics."]],
+  ] },
+} as const
 
 export default function ReferentCasePage() {
-  return (
-    <div className="min-h-screen bg-background">
-      <Header showBackButton />
-
-      <main className="mx-auto max-w-3xl px-4 py-12">
-        <article className="prose-custom">
-          <p className="mb-3 font-mono text-xs uppercase tracking-wider text-muted-foreground">
-            Squads Ventures {"\u00B7"} Referent
-          </p>
-          <h1 className="mb-5 font-mono text-xl font-semibold leading-tight tracking-tight sm:text-2xl">
-            Squads Ventures: building a measurable product operating system for Referent
-          </h1>
-
-          <div className="mb-12 flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <span key={tag} className="rounded-full border border-border bg-muted/50 px-3 py-1 font-mono text-xs text-muted-foreground">
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          <Section title="Context & problem">
-            <P>
-              At Squads Ventures, I work on Referent, its AI SEO product. It needed to make faster, more reliable product decisions while customer feedback, delivery work, analytics freshness, and AI operating costs were distributed across separate workflows. The issue was not a lack of activity - it was the absence of a shared operating system that connected evidence to decisions and delivery.
-            </P>
-          </Section>
-
-          <Section title="Discovery & evidence">
-            <P>
-              I synthesized operational intelligence from 24 client-operations conversations spanning 9 accounts, alongside signals from 13 commercial opportunities. That created a concrete evidence base for recurring pain points, product gaps, and opportunities - not a backlog driven by the loudest request.
-            </P>
-          </Section>
-
-          <Section title="Decisions">
-            <List items={[
-              "Designed a dual-track, continuous Discovery and Delivery model in Kanban so learning and execution could run in parallel.",
-              "Introduced ICE prioritization and WIP limits to make sequencing explicit, protect focus, and expose blocked work.",
-              "Made analytics freshness and variable AI cost observable product concerns, rather than invisible operational overhead.",
-            ]} />
-          </Section>
-
-          <Section title="Delivery">
-            <P>
-              I owned the product-operating design, evidence synthesis, prioritization approach, and the technical initiatives that made critical signals measurable. Delivery was collaborative: the team built and operated the product changes and automation together.
-            </P>
-            <List items={[
-              "A scheduled analytics workflow brought freshness to 21 of 22 organizations and reduced a key manual refresh from 15 minutes to 3 minutes - about an 80% reduction.",
-              "A warm-audit approach reduced a relevant AI operation's internal cost by 86%, creating a clearer path to traceable variable-cost management.",
-            ]} />
-          </Section>
-
-          <Section title="Verified outcomes">
-            <List items={[
-              "A continuous discovery and delivery cadence with explicit prioritization, WIP, and operational metrics.",
-              "A reusable intelligence layer grounded in customer-operations and commercial signals.",
-              "Analytics freshness improved across 21 of 22 organizations, with manual refresh time reduced by ~80%.",
-              "An 86% internal cost reduction in the audited AI operation.",
-            ]} />
-          </Section>
-
-          <Section title="What I owned and what the team built">
-            <P><strong>I owned:</strong> framing the operating problem, the dual-track model, evidence synthesis, prioritization mechanics, and driving the decision-making around measurability.</P>
-            <P><strong>The team built:</strong> the production workflows, automations, and product improvements that made the system real. The outcomes are team outcomes; my contribution was connecting product judgment to technical execution.</P>
-          </Section>
-
-          <Section title="Learning">
-            <P>
-              For AI products, a roadmap is not enough. You need a system that continuously connects customer evidence, delivery capacity, product quality, and unit economics. The job is not just to ship - it is to make the next decision better than the last.
-            </P>
-          </Section>
-        </article>
-      </main>
-
-      <footer className="border-t border-border">
-        <div className="mx-auto max-w-3xl px-4 py-6">
-          <p className="font-mono text-xs text-muted-foreground">(c) {new Date().getFullYear()} Alonso Lamilla</p>
-        </div>
-      </footer>
-    </div>
-  )
-}
-
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
-  return <section className="mb-10"><h2 className="mb-4 font-mono text-base font-semibold">{title}</h2>{children}</section>
-}
-
-function P({ children }: { children: React.ReactNode }) {
-  return <p className="mb-4 leading-relaxed text-foreground/90">{children}</p>
-}
-
-function List({ items }: { items: string[] }) {
-  return (
-    <ul className="mb-4 list-none space-y-2 pl-0">
-      {items.map((item) => (
-        <li key={item} className="relative pl-5 text-foreground/90 before:absolute before:left-0 before:top-[0.6em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-muted-foreground/50">
-          {item}
-        </li>
-      ))}
-    </ul>
-  )
+  const { locale } = useLanguage()
+  const content = caseContent[locale]
+  return <div className="min-h-screen bg-background"><Header showBackButton /><main className="mx-auto max-w-3xl px-4 py-12"><article className="prose-custom"><p className="mb-3 font-mono text-xs uppercase tracking-wider text-muted-foreground">Squads Ventures {"\u00B7"} Referent</p><h1 className="mb-5 font-mono text-xl font-semibold leading-tight tracking-tight sm:text-2xl">{content.title}</h1><div className="mb-12 flex flex-wrap gap-2">{content.tags.map((tag) => <span key={tag} className="rounded-full border border-border bg-muted/50 px-3 py-1 font-mono text-xs text-muted-foreground">{tag}</span>)}</div>{content.sections.map(([title, items]) => <section key={title} className="mb-10"><h2 className="mb-4 font-mono text-base font-semibold">{title}</h2>{items.map((item) => <p key={item} className="mb-4 leading-relaxed text-foreground/90">{item}</p>)}</section>)}</article></main><footer className="border-t border-border"><div className="mx-auto max-w-3xl px-4 py-6"><p className="font-mono text-xs text-muted-foreground">(c) {new Date().getFullYear()} Alonso Lamilla</p></div></footer></div>
 }
