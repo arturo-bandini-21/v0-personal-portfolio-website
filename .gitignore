@@ -10,6 +10,9 @@ next.user-config.*
 # Environment variables
 .env*.local
 
+# Local Codex permissions (machine-specific; never commit full-access settings)
+.codex/config.toml
+
 # Common ignores
 node_modules
 .next/

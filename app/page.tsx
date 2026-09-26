@@ -3,15 +3,70 @@
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Mail, Phone, ExternalLink } from "lucide-react"
-import { FaLinkedinIn, FaGithub } from "react-icons/fa"
+import { ArrowRight, ExternalLink, Mail, Phone } from "lucide-react"
+import { FaGithub, FaLinkedinIn } from "react-icons/fa"
 import { Header } from "@/components/header"
 import { useLanguage } from "@/lib/language-context"
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-} from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
+
+const work = [
+  {
+    href: "/cases/5",
+    eyebrow: "Squads Ventures \u00B7 Referent",
+    title: "Squads Ventures: building a measurable product operating system for Referent",
+    description:
+      "Turned fragmented customer, delivery, and analytics signals into a continuous product operating system; cut a key manual refresh from 15 to 3 minutes.",
+    tags: ["Discovery", "Kanban", "Prioritization", "Analytics", "AI operations"],
+    logo: "/logos/squads-ventures.png",
+    logoAlt: "Squads Ventures",
+    featured: true,
+  },
+  {
+    href: "/cases/4",
+    eyebrow: "Yavendi\u00F3",
+    title: "Yavendi\u00F3: designing a production experiment for an LLM model decision",
+    description:
+      "Protected a high-stakes model rollout with valid experimental design, segmentation, and a cost-aware decision framework.",
+    tags: ["Experiment design", "LLM evaluation", "Product analytics"],
+    logo: "/logos/yavendio.png",
+    logoAlt: "Yavendió",
+  },
+  {
+    href: "/cases/1",
+    eyebrow: "Yavendi\u00F3",
+    title: "Yavendi\u00F3: building its first product decision system",
+    description:
+      "Replaced manual analysis with an operating analytics layer used across product and operations.",
+    tags: ["Product analytics", "Data modeling", "Decision systems"],
+    logo: "/logos/yavendio.png",
+    logoAlt: "Yavendió",
+  },
+  {
+    href: "/cases/2",
+    eyebrow: "TuThorIA",
+    title: "TuThorIA: validating an AI-assisted education product from zero to MVP",
+    description:
+      "Framed a user problem, chose a conversational wedge, and shipped a real-world product for validation.",
+    tags: ["MVP strategy", "AI automation", "Monetization"],
+  },
+  {
+    href: "/cases/3",
+    eyebrow: "Favo",
+    title: "Favo: improving a product's store-rating signal through activation",
+    description:
+      "Co-led a focused intervention that moved the rating from ~3.1 to ~4.5.",
+    tags: ["Growth", "Activation", "User feedback"],
+    logo: "/logos/favo.png",
+    logoAlt: "Favo",
+  },
+]
+
+const howIWork = [
+  ["01 \u00B7 Discover", "Interviews, operational signals, and product analytics to make the problem observable."],
+  ["02 \u00B7 Decide", "Trade-offs, clear success criteria, and PRDs that turn evidence into an executable bet."],
+  ["03 \u00B7 Build", "Prototypes, automations, and technical delivery with the team - not hand-offs into a void."],
+  ["04 \u00B7 Measure", "Product metrics, growth loops, and evaluations that tell us what changed and what to do next."],
+]
 
 export default function Home() {
   const { t } = useLanguage()
@@ -22,270 +77,136 @@ export default function Home() {
       <Header />
 
       <main className="mx-auto max-w-3xl px-4 py-16">
-        {/* Profile Section */}
         <section className="mb-16">
           <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-            {/* Avatar placeholder - easily replaceable */}
             <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border border-border bg-muted">
-              <Image
-                src="/avatar.png"
-                alt="Alonso Lamilla"
-                fill
-                className="object-cover"
-                priority
-              />
+              <Image src="/avatar.png" alt="Alonso Lamilla" fill className="object-cover" priority />
             </div>
-
             <div className="flex-1">
-              <h1 className="font-mono text-2xl font-semibold tracking-tight">
-                Alonso Lamilla
-              </h1>
+              <h1 className="font-mono text-2xl font-semibold tracking-tight">Alonso Lamilla</h1>
               <p className="mt-1 font-mono text-sm text-muted-foreground">
-                {t.headline}
+                Product Builder {"\u00B7"} Product Manager {"\u00B7"} Product Analyst
               </p>
             </div>
           </div>
 
-          <p className="mt-6 leading-relaxed text-foreground/90">
-            {t.description}
+          <p className="mt-6 max-w-2xl leading-relaxed text-foreground/90">
+            I turn ambiguous customer and business problems into measurable products. My work sits at the intersection of discovery, product strategy, product analytics, growth experimentation, AI, and hands-on delivery - from framing the decision to shipping and measuring what changed.
           </p>
 
-          {/* External Links */}
           <div className="mt-6 flex flex-wrap items-center gap-4">
-            <a
-              href="https://www.linkedin.com/in/alonso-diego-lamilla-meza"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
+            <a href="https://www.linkedin.com/in/alonso-diego-lamilla-meza" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground">
               <FaLinkedinIn className="h-4 w-4" />
               <span>{t.linkedin}</span>
             </a>
-            <a
-              href="https://github.com/arturo-bandini-21"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
+            <a href="https://github.com/arturo-bandini-21" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground">
               <FaGithub className="h-4 w-4" />
               <span>{t.github}</span>
             </a>
-            <a
-              href="mailto:alonso.lamilla.meza@gmail.com"
-              className="flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
+            <a href="mailto:alonso.lamilla.meza@gmail.com" className="flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground">
               <Mail className="h-4 w-4" />
               <span>{t.emailMe}</span>
             </a>
-            <a
-              href="tel:+51933903202"
-              className="flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
+            <a href="tel:+51933903202" className="flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground">
               <Phone className="h-4 w-4" />
               <span>{t.callMe}</span>
             </a>
-            <a
-              href="https://wa.me/51933903202"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <a href="https://wa.me/51933903202" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground">
+              <Phone className="h-4 w-4" />
               <span>WhatsApp</span>
             </a>
           </div>
         </section>
 
-        {/* Cases Section */}
-        <section>
-          <h2 className="mb-6 font-mono text-xs font-medium uppercase tracking-wider text-muted-foreground">
-            {t.cases}
-          </h2>
-
-          <div className="flex flex-col gap-4">
-            {/* Case 1 */}
-            <Link
-              href="/cases/1"
-              className="group flex flex-col rounded-lg border border-border bg-card p-4 transition-colors hover:border-foreground/20 hover:bg-accent/50"
-            >
-              <div className="flex items-start justify-between">
-                <div className="flex-1">
-                  <h3 className="font-mono text-sm font-medium group-hover:text-foreground">
-                    {t.case1Title}
-                  </h3>
-                  <p className="mt-1 font-mono text-xs text-muted-foreground">
-                    {t.case1Subtitle}
-                  </p>
-                </div>
-                <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-foreground" />
+        <section className="mb-16">
+          <h2 className="mb-6 font-mono text-xs font-medium uppercase tracking-wider text-muted-foreground">How I work</h2>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {howIWork.map(([title, description]) => (
+              <div key={title} className="rounded-lg border border-border bg-card p-4">
+                <h3 className="font-mono text-sm font-medium">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
               </div>
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {["PostgreSQL", "SQL", "Looker Studio", "Metabase", "Slack API", "PostHog"].map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-border bg-muted/50 px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </Link>
-
-            {/* Case 2 */}
-            <Link
-              href="/cases/2"
-              className="group flex flex-col rounded-lg border border-border bg-card p-4 transition-colors hover:border-foreground/20 hover:bg-accent/50"
-            >
-              <div className="flex items-start justify-between">
-                <div className="flex-1">
-                  <h3 className="font-mono text-sm font-medium group-hover:text-foreground">
-                    {t.case2Title}
-                  </h3>
-                  <p className="mt-1 font-mono text-xs text-muted-foreground">
-                    {t.case2Subtitle}
-                  </p>
-                </div>
-                <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-foreground" />
-              </div>
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {["Python", "WhatsApp API", "OpenAI API", "Looker Studio", "Web Scraping"].map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-border bg-muted/50 px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </Link>
-            {/* Case 3 */}
-            <Link
-              href="/cases/3"
-              className="group flex flex-col rounded-lg border border-border bg-card p-4 transition-colors hover:border-foreground/20 hover:bg-accent/50"
-            >
-              <div className="flex items-start justify-between">
-                <div className="flex-1">
-                  <h3 className="font-mono text-sm font-medium group-hover:text-foreground">
-                    {t.case3Title}
-                  </h3>
-                  <p className="mt-1 font-mono text-xs text-muted-foreground">
-                    {t.case3Subtitle}
-                  </p>
-                </div>
-                <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-foreground" />
-              </div>
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {["Growth", "App Store Optimization", "User Activation"].map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-border bg-muted/50 px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </Link>
-            {/* Case 4 */}
-            <Link
-              href="/cases/4"
-              className="group flex flex-col rounded-lg border border-border bg-card p-4 transition-colors hover:border-foreground/20 hover:bg-accent/50"
-            >
-              <div className="flex items-start justify-between">
-                <div className="flex-1">
-                  <h3 className="font-mono text-sm font-medium group-hover:text-foreground">
-                    {t.case4Title}
-                  </h3>
-                  <p className="mt-1 font-mono text-xs text-muted-foreground">
-                    {t.case4Subtitle}
-                  </p>
-                </div>
-                <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-foreground" />
-              </div>
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {["A/B Testing", "Statistical Analysis", "LLM Evaluation", "PostHog", "Metabase"].map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-border bg-muted/50 px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </Link>
+            ))}
           </div>
         </section>
 
-        {/* Participaciones Section */}
+        <section>
+          <h2 className="mb-6 font-mono text-xs font-medium uppercase tracking-wider text-muted-foreground">Selected work</h2>
+          <div className="flex flex-col gap-4">
+            {work.map((item) => (
+              <Link key={item.href} href={item.href} className={`group flex flex-col rounded-lg border bg-card p-4 transition-colors hover:bg-accent/50 ${item.featured ? "border-foreground/20" : "border-border hover:border-foreground/20"}`}>
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex-1">
+                    <div className="mb-2 flex items-center gap-2">
+                      {item.logo && (
+                        <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-md border border-border bg-white">
+                          <Image src={item.logo} alt={`${item.logoAlt} logo`} fill sizes="32px" className="object-contain" />
+                        </div>
+                      )}
+                      <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">{item.eyebrow}</p>
+                    </div>
+                    <h3 className="font-mono text-sm font-medium">{item.title}</h3>
+                    <p className="mt-1 font-mono text-xs leading-relaxed text-muted-foreground">{item.description}</p>
+                  </div>
+                  <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-foreground" />
+                </div>
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {item.tags.map((tag) => (
+                    <span key={tag} className="rounded-full border border-border bg-muted/50 px-2 py-0.5 font-mono text-[10px] text-muted-foreground">{tag}</span>
+                  ))}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-16 rounded-lg border border-border bg-card p-5">
+          <h2 className="font-mono text-sm font-medium">Let's build something measurable.</h2>
+          <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
+            I'm available for product roles where customer insight, commercial judgment, and technical execution need to move together.
+          </p>
+          <a href="mailto:alonso.lamilla.meza@gmail.com" className="mt-4 inline-flex items-center gap-2 font-mono text-sm transition-colors hover:text-muted-foreground">
+            <Mail className="h-4 w-4" />
+            alonso.lamilla.meza@gmail.com
+            <ArrowRight className="h-4 w-4" />
+          </a>
+        </section>
+
         <section className="mt-16">
-          <h2 className="mb-6 font-mono text-xs font-medium uppercase tracking-wider text-muted-foreground">
-            {t.participations}
-          </h2>
-
+          <h2 className="mb-6 font-mono text-xs font-medium uppercase tracking-wider text-muted-foreground">{t.participations}</h2>
           <div className="flex items-start gap-4 rounded-lg border border-border bg-card p-4">
-            <button
-              onClick={() => setImageOpen(true)}
-              className="relative h-20 w-20 shrink-0 overflow-hidden rounded-md border border-border bg-muted cursor-pointer transition-opacity hover:opacity-80"
-            >
-              <Image
-                src="/images/participaciones/pm-beers-evento.jpg"
-                alt={t.participation1Event}
-                fill
-                className="object-cover"
-              />
+            <button onClick={() => setImageOpen(true)} className="relative h-20 w-20 shrink-0 cursor-pointer overflow-hidden rounded-md border border-border bg-muted transition-opacity hover:opacity-80">
+              <Image src="/images/participaciones/pm-beers-evento.jpg" alt={t.participation1Event} fill className="object-cover" />
             </button>
-
             <div className="flex flex-col gap-1">
-              <p className="font-mono text-sm text-foreground">
-                {t.participation1Role} · &ldquo;{t.participation1Event}&rdquo;
-              </p>
-              <p className="font-mono text-xs text-muted-foreground">
-                {t.participation1Org}
-              </p>
+              <p className="font-mono text-sm text-foreground">{t.participation1Role} {"\u00B7"} {t.participation1Event}</p>
+              <p className="font-mono text-xs text-muted-foreground">{t.participation1Org}</p>
               <div className="mt-1 flex gap-3">
-                <a
-                  href="https://www.pmbeers.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
-                >
+                <a href="https://www.pmbeers.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 font-mono text-xs text-muted-foreground transition-colors hover:text-foreground">
                   <ExternalLink className="h-3 w-3" />
                   {t.participation1CommunityLink}
                 </a>
-                <a
-                  href="https://luma.com/zq4hwg5a"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
-                >
+                <a href="https://luma.com/zq4hwg5a" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 font-mono text-xs text-muted-foreground transition-colors hover:text-foreground">
                   <ExternalLink className="h-3 w-3" />
                   {t.participation1EventLink}
                 </a>
               </div>
             </div>
           </div>
-
           <Dialog open={imageOpen} onOpenChange={setImageOpen}>
             <DialogContent className="max-w-lg p-2">
               <DialogTitle className="sr-only">{t.participation1Event}</DialogTitle>
               <div className="relative aspect-square w-full overflow-hidden rounded-md">
-                <Image
-                  src="/images/participaciones/pm-beers-evento.jpg"
-                  alt={t.participation1Event}
-                  fill
-                  className="object-contain"
-                />
+                <Image src="/images/participaciones/pm-beers-evento.jpg" alt={t.participation1Event} fill className="object-contain" />
               </div>
             </DialogContent>
           </Dialog>
         </section>
       </main>
 
-      {/* Footer */}
       <footer className="border-t border-border">
         <div className="mx-auto max-w-3xl px-4 py-6">
-          <p className="font-mono text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} Alonso Lamilla
-          </p>
+          <p className="font-mono text-xs text-muted-foreground">(c) {new Date().getFullYear()} Alonso Lamilla</p>
         </div>
       </footer>
     </div>
