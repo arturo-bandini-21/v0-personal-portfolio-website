@@ -83,7 +83,7 @@ export default function Home() {
               <Image src="/avatar.png" alt="Alonso Lamilla" fill className="object-cover" priority />
             </div>
             <div className="flex-1">
-              <h1 className="font-mono text-2xl font-semibold tracking-tight">Alonso Lamilla</h1>
+              <h1 className="font-mono text-2xl font-semibold tracking-tight">Alonso Lamilla <span className="whitespace-nowrap text-muted-foreground">(aka Arturo Bandini)</span></h1>
               <p className="mt-1 font-mono text-sm text-muted-foreground">
                 Product Builder {"\u00B7"} Product Manager {"\u00B7"} Product Analyst
               </p>
