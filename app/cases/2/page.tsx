@@ -10,18 +10,16 @@ const GITHUB_REPO_URL = "https://github.com/arturo-bandini-21/tuthoria_1"
 // Project name
 const PROJECT_NAME = "TuThorIA"
 
-const TECH_STACK = [
-  "Python",
-  "WhatsApp API",
-  "OpenAI API",
-  "Looker Studio",
-  "Web Scraping",
-  "Data Pipelines",
-]
+const TECH_STACK = {
+  es: ["Python", "WhatsApp API", "OpenAI API", "Looker Studio", "Web scraping", "Pipelines de datos"],
+  en: ["Python", "WhatsApp API", "OpenAI API", "Looker Studio", "Web Scraping", "Data Pipelines"],
+  pt: ["Python", "WhatsApp API", "OpenAI API", "Looker Studio", "Raspagem web", "Pipelines de dados"],
+}
 
 export default function Case2Page() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const c = t.case2
+  const techStack = TECH_STACK[locale]
 
   return (
     <div className="min-h-screen bg-background">
@@ -36,7 +34,7 @@ export default function Case2Page() {
 
           {/* Tech Stack Tags */}
           <div className="mb-12 flex flex-wrap gap-2">
-            {TECH_STACK.map((tech) => (
+            {techStack.map((tech) => (
               <span
                 key={tech}
                 className="rounded-full border border-border bg-muted/50 px-3 py-1 font-mono text-xs text-muted-foreground"

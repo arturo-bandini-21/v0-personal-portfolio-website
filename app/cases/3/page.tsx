@@ -3,11 +3,16 @@
 import { Header } from "@/components/header"
 import { useLanguage } from "@/lib/language-context"
 
-const TECH_STACK = ["Growth", "App Store Optimization", "User Activation"]
+const TECH_STACK = {
+  es: ["Growth", "Optimización en tiendas", "Activación de usuarios"],
+  en: ["Growth", "App Store Optimization", "User Activation"],
+  pt: ["Growth", "Otimização em lojas", "Ativação de usuários"],
+}
 
 export default function CaseFavoRatingPage() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const c = t.case3
+  const techStack = TECH_STACK[locale]
 
   return (
     <div className="min-h-screen bg-background">
@@ -22,7 +27,7 @@ export default function CaseFavoRatingPage() {
 
           {/* Tech Stack Tags */}
           <div className="mb-12 flex flex-wrap gap-2">
-            {TECH_STACK.map((tech) => (
+            {techStack.map((tech) => (
               <span
                 key={tech}
                 className="rounded-full border border-border bg-muted/50 px-3 py-1 font-mono text-xs text-muted-foreground"

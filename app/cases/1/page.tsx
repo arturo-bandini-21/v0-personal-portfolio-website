@@ -3,19 +3,16 @@
 import { Header } from "@/components/header"
 import { useLanguage } from "@/lib/language-context"
 
-const TECH_STACK = [
-  "PostgreSQL",
-  "SQL",
-  "Google Sheets",
-  "Looker Studio",
-  "Metabase",
-  "Slack API",
-  "PostHog",
-]
+const TECH_STACK = {
+  es: ["PostgreSQL", "SQL", "Google Sheets", "Looker Studio", "Metabase", "Slack API", "PostHog"],
+  en: ["PostgreSQL", "SQL", "Google Sheets", "Looker Studio", "Metabase", "Slack API", "PostHog"],
+  pt: ["PostgreSQL", "SQL", "Google Sheets", "Looker Studio", "Metabase", "Slack API", "PostHog"],
+}
 
 export default function Case1Page() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const c = t.case1
+  const techStack = TECH_STACK[locale]
 
   return (
     <div className="min-h-screen bg-background">
@@ -30,7 +27,7 @@ export default function Case1Page() {
 
           {/* Tech Stack Tags */}
           <div className="mb-12 flex flex-wrap gap-2">
-            {TECH_STACK.map((tech) => (
+            {techStack.map((tech) => (
               <span
                 key={tech}
                 className="rounded-full border border-border bg-muted/50 px-3 py-1 font-mono text-xs text-muted-foreground"

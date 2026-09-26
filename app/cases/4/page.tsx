@@ -3,17 +3,16 @@
 import { Header } from "@/components/header"
 import { useLanguage } from "@/lib/language-context"
 
-const TECH_STACK = [
-  "A/B Testing",
-  "Statistical Analysis",
-  "LLM Evaluation",
-  "PostHog",
-  "Metabase",
-]
+const TECH_STACK = {
+  es: ["Pruebas A/B", "Análisis estadístico", "Evaluación de LLM", "PostHog", "Metabase"],
+  en: ["A/B Testing", "Statistical Analysis", "LLM Evaluation", "PostHog", "Metabase"],
+  pt: ["Testes A/B", "Análise estatística", "Avaliação de LLM", "PostHog", "Metabase"],
+}
 
 export default function Case4Page() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const c = t.case4
+  const techStack = TECH_STACK[locale]
 
   return (
     <div className="min-h-screen bg-background">
@@ -28,7 +27,7 @@ export default function Case4Page() {
 
           {/* Tech Stack Tags */}
           <div className="mb-12 flex flex-wrap gap-2">
-            {TECH_STACK.map((tech) => (
+            {techStack.map((tech) => (
               <span
                 key={tech}
                 className="rounded-full border border-border bg-muted/50 px-3 py-1 font-mono text-xs text-muted-foreground"
